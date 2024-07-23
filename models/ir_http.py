@@ -33,11 +33,8 @@ class Http(models.AbstractModel):
 
         result = super(Http, self).session_info()
         result['support_url'] = "https://www.odoo.com/help"
-        date = '2222-05-17 10:00:00'
         if warn_enterprise:
             result['warning'] = warn_enterprise
-            #result['expiration_date'] = ICP.get_param('database.expiration_date')
-            result['expiration_date'] = date
+            result['expiration_date'] = ICP.get_param('database.expiration_date')
             result['expiration_reason'] = ICP.get_param('database.expiration_reason')
         return result
-
